@@ -11,4 +11,9 @@ export default defineBuildConfig({
   declaration: true,
   // Clean the output directory before building
   clean: true,
+  rollup: {
+    esbuild: {
+      minify: true,
+    },
+  },
 })
