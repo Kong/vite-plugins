@@ -50,5 +50,6 @@ jobs:
         with:
           name: vite-plugins-build-output-artifact
           path: |
+            ./**
             !/node_modules/**
           include-hidden-files: 'true'
