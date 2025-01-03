@@ -1,0 +1,43 @@
+node_modules
+*.log
+.nuxt
+nuxt.d.ts
+.output
+.data
+# Env variables
+.env
+.env.local
+# Cloudflare variables
+.dev.vars
+.dev.vars.test
+
+# Allow all files ending in .example
+!*.example
+
+package-lock.json
+framework
+dist
+.DS_Store
+.wrangler
+
+# Yarn
+.yarn/cache
+.yarn/*state*
+
+# Local History
+.history
+
+# Generated files
+/layers/core/modules/default-portal-pages/output/**/*.json
+
+# Playwright test results and artifacts
+test-results/
+playwright-report/
+
+# Playwright configuration artifacts
+*.user.js
+*.user.ts
+apps/portal/playwright/.auth/user.json
+.auth/
+
+

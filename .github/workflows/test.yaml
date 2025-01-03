@@ -1,0 +1,54 @@
+name: Test
+
+on:
+  pull_request:
+
+  # Allow calling manually from GitHub
+  workflow_dispatch:
+
+  # Allow workflow to be called by another workflow
+  workflow_call:
+
+jobs:
+  test:
+    name: Lint, Type Check, and Test
+    runs-on: ${{ vars.RUNS_ON }}
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    outputs:
+      short-commit-hash: ${{ steps.workflow-variables.outputs.short-commit-hash }}
+      nuxt-site-env: ${{ steps.workflow-variables.outputs.nuxt-site-env }}
+      branch-name: ${{ steps.workflow-variables.outputs.branch-name }}
+      commit-message: ${{ steps.workflow-variables.outputs.commit-message }}
+      commit-hash: ${{ steps.workflow-variables.outputs.commit-hash }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM with Dependencies
+        uses: ./.github/actions/setup-pnpm-with-dependencies/
+        with:
+          force-install: true
+          save-cache: true
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+
+      - name: Upload build artifacts
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: vite-plugins-build-output-artifact
+          path: |
+            !/node_modules/**
+          include-hidden-files: 'true'

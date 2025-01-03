@@ -1,0 +1,16 @@
+name: Verify PR
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-packages:
+    name: No PR preview packages
+    runs-on: ${{ vars.RUNS_ON }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: No PR preview packages
+        uses: Kong/public-shared-actions/pr-previews/validate@main

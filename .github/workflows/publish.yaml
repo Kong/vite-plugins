@@ -1,0 +1,36 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  run-tests:
+    name: Tests
+    uses: ./.github/workflows/test.yaml
+
+  publish-plugins:
+    name: Publish Plugins
+    needs: [run-tests]
+    # If a push event or a manual workflow_dispatch event with deploy-portal-app set to 'true'
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ${{ vars.RUNS_ON }}
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM with Dependencies
+        uses: ./.github/actions/setup-pnpm-with-dependencies/
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: vite-plugins-build-output-artifact
+
+      # TODO: PUBLISH PLUGINS

@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "github>Kong/public-shared-renovate:kong-frontend-config.json"
+  ],
+  "packageRules": [
+    {
+      "groupName": "pnpm engines range",
+      "groupSlug": "pnpm-engines",
+      "matchPackageNames": [
+        "pnpm"
+      ],
+      "matchDepTypes": [
+        "engines"
+      ],
+      "enabled": false
+    }
+  ]
+}

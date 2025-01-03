@@ -1,0 +1,26 @@
+# Reference:
+# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+
+pre-push:
+  parallel: true
+  commands:
+    eslint:
+      skip:
+        - merge
+        - rebase
+      run: pnpm lint
+    # TODO: Should enable later
+    # typecheck:
+    #   skip:
+    #     - merge
+    #     - rebase
+    #   run: pnpm typecheck
+
+commit-msg:
+  parallel: true
+  commands:
+    commitlint:
+      skip:
+        - merge
+        - rebase
+      run: pnpm commitlint --edit

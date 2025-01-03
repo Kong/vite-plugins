@@ -1,0 +1,34 @@
+{
+  "markdown.extension.toc.levels": "2..3",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "files.associations": {
+    ".env.*": "ini",
+    ".*.vars*": "ini",
+    "*.vue": "vue"
+  },
+  "editor.formatOnPaste": true,
+  "editor.trimAutoWhitespace": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "eslint.format.enable": true,
+  "eslint.validate": [
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "json"
+  ],
+  "cssVariables.lookupFiles": [
+    "**/*.css",
+    "**/*.scss",
+    "node_modules/@kong/design-tokens/dist/tokens/css/custom-properties.css"
+  ],
+  "scss.scannerExclude": [
+    "**/.git",
+    "**/bower_components",
+  ]
+}
