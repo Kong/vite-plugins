@@ -2,7 +2,9 @@
 
 This plugin provides a retry mechanism for dynamic imports (both JS and CSS) in Vite. It helps to handle cases where dynamic imports might fail due to network issues or other transient problems by retrying the import a specified number of times.
 
-### Usage
+Inspired by [fatso83/retry-dynamic-import](https://github.com/fatso83/retry-dynamic-import).
+
+## Usage
 
 Import and use the plugin in your Vite configuration file:
 ```typescript
@@ -11,18 +13,32 @@ import DynamicImportRetryPlugin from '@kong/vite-plugins/dynamic-import-retry'
 
 export default defineConfig({
   plugins: [
-    DynamicImportRetryPlugin({
-      include: /\.(js|ts|vue|tsx)$/,
-      retries: 3,
-    }),
+    DynamicImportRetryPlugin(),
   ],
 })
 ```
 
-### Configuration Options
+## Configuration Options
 
 | Option   | Type                                      | Description                                                   |
 |----------|-------------------------------------------|---------------------------------------------------------------|
 | include  | string \| RegExp \| (string \| RegExp)[]  | Files to include, default is `\.(js\|ts\|vue\|tsx)$`.          |
-| exclude  | string \| RegExp \| (string \| RegExp)[]  | Files to exclude.                                              |
+| exclude  | string \| RegExp \| (string \| RegExp)[]  | Files to exclude. default is `/node_modules/`                  |
 | retries  | number                                    | Number of retry attempts, default is `3`.                      |
+
+## Limitations
+
+**Transitive imports:** This plugin only retries the top-level dynamic import. If the import itself contains other static imports, those will not be retried.
+```ts
+import('./a.js') // when you import `a.js`, it contains a static import for `b.js`
+
+// a.js
+import './b.js'
+// if `b.js` fails, even `a.js` itself is loaded successfully
+// it still triggers a retry for `a.js` but it won't succeed because `b.js` is not retried.
+```
+
+**Variable import paths:** This plugin only supports static import paths. For example, the following will not work:
+```ts
+import(`./${path}`)
+```

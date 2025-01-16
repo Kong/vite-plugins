@@ -58,7 +58,7 @@ export function createImportWrapper(options = { retries: 3 }) {
             await new Promise((resolve) => setTimeout(resolve, (i + 1) * 200))
           }
         }
-        throw new Error(`[dynamic-import-retry] ${error instanceof Error ? error.message = `[dynamic-import-retry] ${error.message}` : error}`)
+        throw new Error(`[dynamic-import-retry] ${error instanceof Error ? error.message : error}`)
       }
     }
   }
