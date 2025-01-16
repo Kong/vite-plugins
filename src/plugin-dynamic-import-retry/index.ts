@@ -16,6 +16,7 @@ export type Options = {
 
 export const defaultOptions: Options = {
   include: /\.(js|ts|vue|tsx)$/,
+  exclude: /node_modules/,
   retries: 3,
 }
 export function DynamicImportRetryPlugin(opt?: Options): Plugin {
