@@ -18,3 +18,11 @@
     <RouterView />
   </main>
 </template>
+
+<style>
+nav {
+  display: flex;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+</style>
