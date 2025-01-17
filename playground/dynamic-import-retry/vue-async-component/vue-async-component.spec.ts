@@ -2,10 +2,9 @@ import { beforeAll, expect, test } from 'vitest'
 import { build, preview, loadConfigFromFile } from 'vite'
 import { resolve } from 'node:path'
 
-import { page, browserErrors, browserLogs } from '../../vitestSetup'
+import { page } from '../../vitestSetup'
 
 import type { InlineConfig } from 'vite'
-import { describe } from 'vitest'
 
 let viteTestUrl: string
 
