@@ -38,7 +38,22 @@ import './b.js'
 // it still triggers a retry for `a.js` but it won't succeed because `b.js` is not retried.
 ```
 
-**Variable import paths:** This plugin only supports static import paths. For example, the following will not work:
-```ts
-import(`./${path}`)
+## Work with @rollup/plugin-dynamic-import-vars
+If you are using [@rollup/plugin-dynamic-import-vars](https://www.npmjs.com/package/@rollup/plugin-dynamic-import-vars) to import dynamic modules with variables, the order of the plugins matters.
+
+Please make sure to put `dynamic-import-vars` before `dynamic-import-retry` in the plugins list.
+
+```typescript
+build: {
+  minify: false,
+  outDir: 'dist',
+  target: 'esnext',
+  emptyOutDir: true,
+  rollupOptions: {
+    plugins: [
+      dynamicImportVars(),
+      DynamicImportRetryPlugin(),
+    ],
+  },
+},
 ```

@@ -14,6 +14,6 @@ export default defineConfig({
     minify: false,
     outDir: 'dist',
     target: 'esnext',
-    emptyOutDir: false,
+    emptyOutDir: true,
   },
 })
