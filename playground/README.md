@@ -10,3 +10,10 @@ This directory serves as a testing environment for plugins. Each subdirectory co
 2. Within this folder, set up one or more Vite projects for testing.
 3. Write test files with the `.spec.ts` extension to validate your plugin’s functionality.
 4. If browser-based testing is required, you can import `page` or `browser` from the `vitestSetup.ts` file to interact with the headless browser environment.
+
+## Run playground project manually
+```bash
+pnpm vite dev ./playground/<plugin-name>/<project-name>
+pnpm vite build ./playground/<plugin-name>/<project-name>
+pnpm vite preview ./playground/<plugin-name>/<project-name>
+```
