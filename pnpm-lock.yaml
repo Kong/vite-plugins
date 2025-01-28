@@ -21,8 +21,8 @@ importers:
         specifier: ^1.10.1
         version: 1.10.1
       '@kong/eslint-config-kong-ui':
-        specifier: ^1.2.2
-        version: 1.2.2(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
+        specifier: ^1.2.3
+        version: 1.2.4(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
       '@vitest/ui':
         specifier: ^2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -521,6 +521,7 @@ packages:
 
   '@evilmartians/lefthook@1.10.1':
     resolution: {integrity: sha512-G1NPLB4yLYYEyz8oH7yWgHsxUiF546aS1ChSRPNFPSosLxZFM8wqDxek/J9sT447v83gJbKdrnstxeQW/9CIRA==}
+    cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -562,8 +563,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@kong/eslint-config-kong-ui@1.2.2':
-    resolution: {integrity: sha512-uOB0BkL4g1NMS4WARUO3HqxmJhjWSXxomeHW7wu0Lcl4uF/hlaNlyd2sLgm4bYdfSUOQtWVnyj2AZEMk6QmsIA==}
+  '@kong/eslint-config-kong-ui@1.2.4':
+    resolution: {integrity: sha512-DoYY1BNITrPP3N1BdN9KMryOSXGWlUUf1ko+ELDuGG2SerAOxyMxVIlP1YgbMjhHY6aFAaX1BH5qnX6W1bkYHg==}
     engines: {node: '>=18.0.0 || >=20.13.1'}
     peerDependencies:
       eslint: '>= 9.17.0'
@@ -3052,7 +3053,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@kong/eslint-config-kong-ui@1.2.2(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)':
+  '@kong/eslint-config-kong-ui@1.2.4(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)':
     dependencies:
       '@eslint/compat': 1.2.4(eslint@9.17.0(jiti@2.4.2))
       '@eslint/eslintrc': 3.2.0
