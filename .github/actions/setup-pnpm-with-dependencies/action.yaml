@@ -86,12 +86,11 @@ runs:
       id: playwright-cache
       uses: actions/cache@v4
       with:
-        key: ${{ runner.os }}playwright-bin-v${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
+        key: ${{ runner.os }}-playwright-bin-v${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
         path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
 
     - name: Install Playwright
       id: playwright-install
       shell: bash
       # does not need to explicitly set chromium after https://github.com/microsoft/playwright/issues/14862 is solved
-      # test cache
       run: pnpm playwright install chromium
