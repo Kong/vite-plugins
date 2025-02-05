@@ -93,4 +93,5 @@ runs:
       id: playwright-install
       shell: bash
       # does not need to explicitly set chromium after https://github.com/microsoft/playwright/issues/14862 is solved
+      # test cache
       run: pnpm playwright install chromium
