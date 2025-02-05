@@ -80,13 +80,13 @@ runs:
     - name: Set Playwright path
       id: playwright-path
       shell: bash
-      run: echo "PLAYWRIGHT_BROWSERS_PATH=/home/.cache/ms-playwright" >> $GITHUB_ENV
+      run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-bin" >> $GITHUB_ENV
 
     - name: Cache Playwright's binary
       id: playwright-cache
       uses: actions/cache@v4
       with:
-        key: playwright-bin-v${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
+        key: ${{ runner.os }}playwright-bin-v${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
         path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
 
     - name: Install Playwright
