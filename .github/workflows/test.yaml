@@ -24,7 +24,7 @@ jobs:
       commit-hash: ${{ steps.workflow-variables.outputs.commit-hash }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup PNPM with Dependencies
         uses: ./.github/actions/setup-pnpm-with-dependencies/
@@ -46,7 +46,7 @@ jobs:
 
       - name: Upload build artifacts
         if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
         with:
           name: vite-plugins-build-output-artifact
           path: |
