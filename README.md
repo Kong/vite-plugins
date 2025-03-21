@@ -94,12 +94,10 @@ pnpm lint:fix
 Unit tests are run with [Vitest](https://vitest.dev/).
 
 ```shell
-# Run tests
 pnpm test
-
-# Run tests in the Vitest UI
-pnpm test:ui
 ```
+
+See the [Steps to Test Your Plugin](./playground/README.md) for more information on how to write tests.
 
 ### Build
 
