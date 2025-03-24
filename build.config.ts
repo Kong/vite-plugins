@@ -6,6 +6,7 @@ export default defineBuildConfig({
   // Each separate plugin's entry file should be listed here
   entries: [
     './src/plugin-example-one/index.ts',
+    './src/plugin-dynamic-import-retry/index.ts',
   ],
   // Generates .d.ts declaration file(s)
   declaration: true,

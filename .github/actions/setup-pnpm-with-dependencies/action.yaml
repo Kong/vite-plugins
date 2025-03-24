@@ -71,3 +71,26 @@ runs:
       with:
         path: './node_modules'
         key: ${{ steps.node-version.outputs.cache-key }}
+
+    - name: Get Playwright Chromium version
+      id: get-playwright-version
+      run: echo "PLAYWRIGHT_VERSION=$(jq -r '.devDependencies["playwright-chromium"]' < package.json | sed 's/[^0-9.]//g' | sed 's/\./-/g')" >> $GITHUB_OUTPUT
+      shell: bash
+
+    - name: Set Playwright path
+      id: playwright-path
+      shell: bash
+      run: echo "PLAYWRIGHT_BROWSERS_PATH=/home/runner/.cache/ms-playwright" >> $GITHUB_OUTPUT
+
+    - name: Cache Playwright's binary
+      id: playwright-cache
+      uses: actions/cache@v4
+      with:
+        key: playwright-bin-v${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
+        path: ${{ steps.playwright-path.outputs.PLAYWRIGHT_BROWSERS_PATH }}
+
+    - name: Install Playwright
+      id: playwright-install
+      shell: bash
+      # does not need to explicitly set chromium after https://github.com/microsoft/playwright/issues/14862 is solved
+      run: pnpm playwright install chromium
