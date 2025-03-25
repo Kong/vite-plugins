@@ -9,7 +9,7 @@ export default defineConfig({
     DynamicImportRetryPlugin(),
   ],
   build: {
-    minify: false,
+    // minify: false,
     outDir: 'dist',
     target: 'esnext',
     emptyOutDir: true,

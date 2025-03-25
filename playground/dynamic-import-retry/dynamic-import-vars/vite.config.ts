@@ -7,7 +7,7 @@ import { DynamicImportRetryPlugin } from '../../../src/plugin-dynamic-import-ret
 export default defineConfig({
   root: resolve(__dirname),
   build: {
-    minify: false,
+    // minify: false,
     outDir: 'dist',
     target: 'esnext',
     emptyOutDir: true,
