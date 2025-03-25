@@ -13,7 +13,9 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       plugins: [
-        dynamicImportVars(),
+        dynamicImportVars({
+          exclude: /node_modules/,
+        }),
         DynamicImportRetryPlugin(),
       ],
     },

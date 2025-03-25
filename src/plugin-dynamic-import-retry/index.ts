@@ -4,7 +4,6 @@ import MagicString from 'magic-string'
 import { createFilter } from '@rollup/pluginutils'
 
 import { createCSSPreloadRetry } from './css-preload-retry'
-import { createImportWrapper } from './import-wrapper'
 
 const dynamicImportPrefixRE = /import\s*\(/
 
@@ -55,7 +54,7 @@ export function DynamicImportRetryPlugin(opt?: Options): Plugin {
           const start = node.start
           const end = node.end
           const path = code.slice(node.source.start, node.source.end)
-          ms.overwrite(start, end, `importWrapper(() => import(${path}))()`)
+          ms.overwrite(start, end, `importWrapper(() => import(${path}))`)
         },
       })
 
@@ -83,9 +82,11 @@ export function DynamicImportRetryPlugin(opt?: Options): Plugin {
 
     load(id) {
       if (id === resolvedVirtualModuleId) {
-        return `${createImportWrapper.toString()}
-const importWrapper = createImportWrapper({ retries: ${options.retries} })
-export { importWrapper }`
+        return `import { createDynamicImportWithRetry } from '@fatso83/retry-dynamic-import'
+export const importWrapper = createDynamicImportWithRetry(${options.retries}, {
+  logger: console.log,
+  importFunction: (path) => import(path),
+})`
       }
     },
   }

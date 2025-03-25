@@ -2,13 +2,23 @@ import { expect, test } from 'vitest'
 import { build, preview } from 'vite'
 import { resolve } from 'node:path'
 
-import { browserErrors, page } from '../../vitestSetup'
+import { browserLogs, page } from '../../vitestSetup'
+import { defaultOptions } from '../../../src/plugin-dynamic-import-retry/index'
 
 import type { InlineConfig } from 'vite'
 import { loadConfigFromFile } from 'vite'
 import { beforeAll } from 'vitest'
 
 let viteTestUrl: string
+const maxAttempts = defaultOptions.retries!
+const testDelay = 100 // delay for the test to take effect
+const getJsTimeout = (retries: number) => {
+  let t = testDelay
+  for (let i = 0; i < retries; i++) {
+    t += 1000 * 2 ** (i - 1)
+  }
+  return t
+}
 
 beforeAll(async () => {
   const res = await loadConfigFromFile(
@@ -56,9 +66,9 @@ test('should not work on transitive import', async () => {
     },
   )
   await page.click('#btn-transitive')
-  await page.waitForTimeout(2000)
+  await page.waitForTimeout(getJsTimeout(maxAttempts))
   expect(entryModuleLoadCount).toBe(4)
   expect(subModuleLoadCount).toBe(1)
-  const e = browserErrors.find(e => e.message.includes('[dynamic-import-retry]') && e.message.includes('transitive'))
+  const e = browserLogs.find(m => m.includes('TypeError: Failed to fetch dynamically imported module'))
   expect(e).toBeDefined()
 })

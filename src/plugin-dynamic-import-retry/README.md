@@ -45,7 +45,7 @@ Please make sure to put `dynamic-import-vars` before `dynamic-import-retry` in t
 
 ```typescript
 build: {
-  minify: false,
+  // minify: false,
   outDir: 'dist',
   target: 'esnext',
   emptyOutDir: true,
