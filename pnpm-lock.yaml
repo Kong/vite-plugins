@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@fatso83/retry-dynamic-import':
-        specifier: ^2.1.3
-        version: 2.1.3
+        specifier: ^2.1.4
+        version: 2.1.4
       '@rollup/pluginutils':
         specifier: ^5.1.4
         version: 5.1.4(rollup@4.29.1)
@@ -599,8 +599,8 @@ packages:
     os: [darwin, linux, win32]
     hasBin: true
 
-  '@fatso83/retry-dynamic-import@2.1.3':
-    resolution: {integrity: sha512-oIzgOaZg25uZyYizWK8Ejft0pSXtY0i0VULax6sCOqgVkr03GK8BHSSBJgeM1Ds9a6eIzedN1wvYRU7n7MVGjQ==}
+  '@fatso83/retry-dynamic-import@2.1.4':
+    resolution: {integrity: sha512-C/fTmz28GWWBJuo/RJm6hR8hPgsOp7wqxYbS572uPjlapUebPfaX9r1c+5rQHHuwYo4goASmvG50q++q26q8NQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -3664,7 +3664,7 @@ snapshots:
 
   '@evilmartians/lefthook@1.10.1': {}
 
-  '@fatso83/retry-dynamic-import@2.1.3':
+  '@fatso83/retry-dynamic-import@2.1.4':
     optionalDependencies:
       react: 19.0.0
 
