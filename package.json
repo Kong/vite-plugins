@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "test": "vitest run --passWithNoTests",
-    "test:ui": "vitest --ui --passWithNoTests",
+    "test": "vitest run -c vitest.config.e2e.ts",
     "typecheck": "vue-tsc --noEmit",
     "build": "unbuild",
     "commit": "cz"
@@ -16,9 +15,15 @@
     "./plugin-example-one": {
       "import": "./dist/plugin-example-one/index.mjs",
       "types": "./dist/plugin-example-one/index.d.ts"
+    },
+    "./plugin-dynamic-import-retry": {
+      "import": "./dist/plugin-dynamic-import-retry/index.mjs",
+      "types": "./dist/plugin-dynamic-import-retry/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "author": "Kong, Inc.",
   "license": "Apache-2.0",
   "devDependencies": {
@@ -27,11 +32,21 @@
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
     "@evilmartians/lefthook": "^1.10.1",
     "@kong/eslint-config-kong-ui": "^1.2.6",
+    "@rollup/plugin-dynamic-import-vars": "^2.1.5",
+    "@types/fs-extra": "^11.0.4",
+    "@vitejs/plugin-vue": "^5.2.1",
     "@vitest/ui": "^2.1.8",
+    "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.17.0",
+    "fs-extra": "^11.2.0",
+    "npm-run-all2": "^7.0.2",
+    "playwright-chromium": "^1.49.1",
     "typescript": "^5.7.2",
     "unbuild": "^3.2.0",
+    "vite": "^6.0.7",
     "vitest": "^2.1.8",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
     "vue-tsc": "^2.2.0"
   },
   "engines": {
@@ -52,5 +67,14 @@
       "jiraPrepend": "[",
       "jiraAppend": "]"
     }
+  },
+  "dependencies": {
+    "@fatso83/retry-dynamic-import": "^2.1.4",
+    "@rollup/pluginutils": "^5.1.4",
+    "acorn-walk": "^8.3.4",
+    "magic-string": "^0.30.17"
+  },
+  "peerDependencies": {
+    "vite": "^5.0.0 || ^6.0.0"
   }
 }
