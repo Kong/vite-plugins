@@ -40,9 +40,9 @@
   },
   "volta": {
     "node": "22.12.0",
-    "pnpm": "9.15.1"
+    "pnpm": "10.15.1"
   },
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@10.15.1",
   "config": {
     "commitizen": {
       "path": "./node_modules/@digitalroute/cz-conventional-changelog-for-jira",
