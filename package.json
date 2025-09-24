@@ -22,24 +22,24 @@
   "author": "Kong, Inc.",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
-    "@evilmartians/lefthook": "^1.10.1",
+    "@evilmartians/lefthook": "^1.13.0",
     "@kong/eslint-config-kong-ui": "^1.2.9",
     "@vitest/ui": "^2.1.9",
     "eslint": "^9.17.0",
-    "typescript": "^5.7.2",
-    "unbuild": "^3.2.0",
+    "typescript": "^5.9.2",
+    "unbuild": "^3.6.1",
     "vitest": "^2.1.9",
     "vue-tsc": "^2.2.12"
   },
   "engines": {
-    "node": ">=22.12.0",
+    "node": ">=22.19.0",
     "pnpm": ">=9.15.1"
   },
   "volta": {
-    "node": "22.12.0",
+    "node": "22.19.0",
     "pnpm": "9.15.1"
   },
   "packageManager": "pnpm@9.15.1",
