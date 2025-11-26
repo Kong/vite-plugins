@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
 
       - name: No PR preview packages
         uses: Kong/public-shared-actions/pr-previews/validate@main
