@@ -21,8 +21,8 @@ importers:
         specifier: ^1.13.6
         version: 1.13.6
       '@kong/eslint-config-kong-ui':
-        specifier: ^1.6.1
-        version: 1.6.1(@typescript-eslint/parser@8.46.1(eslint@9.26.0(hono@4.11.7)(jiti@2.4.2))(typescript@5.9.3))(eslint@9.26.0(hono@4.11.7)(jiti@2.4.2))(typescript@5.9.3)
+        specifier: ^1.6.2
+        version: 1.6.2(@typescript-eslint/parser@8.46.1(eslint@9.26.0(hono@4.11.7)(jiti@2.4.2))(typescript@5.9.3))(eslint@9.26.0(hono@4.11.7)(jiti@2.4.2))(typescript@5.9.3)
       '@vitest/ui':
         specifier: ^2.1.9
         version: 2.1.9(vitest@2.1.9)
@@ -564,8 +564,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@kong/eslint-config-kong-ui@1.6.1':
-    resolution: {integrity: sha512-rjhdvOt/J6fMH05o0Wlc/gO2aUuUL5nDZj50sbKXK4kYGGdYuUV7VMvfWWcs2glLypZeE74CeWRHh83vflFuOw==}
+  '@kong/eslint-config-kong-ui@1.6.2':
+    resolution: {integrity: sha512-e1ExwzkIYStLyY5W0UkWumUJMVNliCph1BS+4IM9HOll7BarKMdu4yyQQWbNVkkgvtq5cl09Lm31EZ8BfYJyLQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       eslint: '>= 9.37.0'
@@ -1783,6 +1783,7 @@ packages:
   git-raw-commits@4.0.0:
     resolution: {integrity: sha512-ICsMM1Wk8xSGMowkOmPrzo2Fgmfo4bMHLNX6ytHjajRJUqvHOw/TFapQ+QG75c3X/tTDDhOSRPGC52dDbNM8FQ==}
     engines: {node: '>=16'}
+    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
     hasBin: true
 
   glob-parent@5.1.2:
@@ -3517,7 +3518,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@kong/eslint-config-kong-ui@1.6.1(@typescript-eslint/parser@8.46.1(eslint@9.26.0(hono@4.11.7)(jiti@2.4.2))(typescript@5.9.3))(eslint@9.26.0(hono@4.11.7)(jiti@2.4.2))(typescript@5.9.3)':
+  '@kong/eslint-config-kong-ui@1.6.2(@typescript-eslint/parser@8.46.1(eslint@9.26.0(hono@4.11.7)(jiti@2.4.2))(typescript@5.9.3))(eslint@9.26.0(hono@4.11.7)(jiti@2.4.2))(typescript@5.9.3)':
     dependencies:
       '@eslint/js': 9.37.0
       '@stylistic/eslint-plugin': 5.4.0(eslint@9.26.0(hono@4.11.7)(jiti@2.4.2))
